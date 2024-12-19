@@ -12,6 +12,7 @@ const Func = require("../lib/function");
 const { writeExif } = require("../lib/sticker");
 
 module.exports = async (m, sock, store) => {
+  if (m.isBot) return;
   let isCommand =
     (m.prefix && m.body.startsWith(m.prefix) + m.command) || false;
   const quoted = m.isQuoted ? m.quoted : m;

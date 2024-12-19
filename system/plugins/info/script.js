@@ -19,7 +19,7 @@ module.exports = {
     cap += `> *- Terakhir publish :* ${Func.ago(data.pushed_at)}\n`;
     cap += `> *- Link :* ${data.html_url}\n`;
     cap +=
-      "\nScript dapat kembang kan sendiri dan jika kamu dapat menjual nya secara komersial dengan catatan jangan menghilangkan credits kami *( Kalo bisa tambahkan credits namamu di bawah nama kami )*\n\n*– 乂 Thank for Build Script & Helper*\n> *-* Bang_syaii [ https://github.com/LT-SYAII ]\n> *-* AxellNetwork [ https://github.com/AxellNetwork ]\n\n*– Forum Update :* https://whatsapp.com/channel/0029VauJgduEwEjwwVwLnw37";
+      "\n> *- ✓ Support case x Plugins*\n> *- ✓ Size script Ringan*\n> *- ✓ 100% menggunakan scrape*\n> *- ✓ Respon polling & edit*\n> *- ✓ Auto reload file scrape*\n> *- ✓ Support Run dimana aja*\n\nScript ini gratis boleh kalian recode dan jual asal jangan hapus credit original dari kami!\n\n*– 乂 Thank for Build Script & Helper*\n> *-* Bang_syaii [ https://github.com/LT-SYAII ]\n> *-* AxellNetwork [ https://github.com/AxellNetwork ]\n\n*– Forum Update :* https://whatsapp.com/channel/0029VauJgduEwEjwwVwLnw37";
 
     m.reply(cap);
   },

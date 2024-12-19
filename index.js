@@ -19,6 +19,7 @@ const chalk = require('chalk');
 const readline = require("node:readline");
 const simple = require('./lib/simple.js')
 const fs = require("node:fs");
+const moment = require("moment-timezone");
 const Queque = require("./lib/queque.js");
 const messageQueue = new Queque();
 const Database = require("./lib/database.js");
@@ -220,13 +221,41 @@ sock.ev.on("messages.upsert", async (cht) => {
       Object.keys(message.message)[0] === "ephemeralMessage"
         ? message.message.ephemeralMessage.message
         : message.message;
-    let m = await serialize(message, sock, store);
-    if (m.isBot) return
+    global.m = await serialize(message, sock, store);
+    if (m.isBot && m.fromMe) return
     await require("./system/handler.js")(m, sock, store); 
-    await require("./system/case.js")(m, sock, store)   
-        });
+    await require("./system/case.js")(m, sock, store);
+       });
     }
  });
+async function getMessage(key) {
+        if (store) {
+            const msg = await store.loadMessage(key.remoteJid, key.id)
+            return msg
+        }
+        return {
+            conversation: "NekoBot"
+        }
+    }
+   sock.ev.on('messages.update', 
+    async(chatUpdate) => {
+        for (const { key, update } of chatUpdate) {
+      	if (update.pollUpdates && key.fromMe) {
+	     const pollCreation = await getMessage(key);	
+	   	if (pollCreation) {
+             let pollUpdate = await getAggregateVotesInPollMessage({
+							message: pollCreation?.message,
+							pollUpdates: update.pollUpdates,
+						});
+	          let toCmd = pollUpdate.filter(v => v.voters.length !== 0)[0]?.name
+              console.log(toCmd);
+	          await appenTextMessage(m, sock, toCmd, pollCreation);
+	          await sock.sendMessage(m.cht, { delete: key });
+	         	} else return false
+	          return 
+   	    	}
+   	      }
+        });    
    return sock
 }
 system()

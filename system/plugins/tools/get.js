@@ -6,9 +6,6 @@ module.exports = {
   command: "get",
   alias: ["fetch"],
   category: ["tools"],
-  settings: {
-    limit: true,
-  },
   description: "Mendapatkan data dari url",
   loading: true,
   async run(m, { sock, Func, text, config }) {
