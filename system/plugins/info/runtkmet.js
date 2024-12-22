@@ -10,6 +10,6 @@ module.exports = {
           cap += `> *- Uptime bot :* ${Func.toDate(process.uptime()+1000)}\n`
           cap += `> *- Uptime server :* ${Func.toDate(os.uptime()+1000)}`
    
-     m.reply(cap);
+      m.reply(cap);
    }
 }
