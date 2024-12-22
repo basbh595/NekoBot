@@ -10,6 +10,7 @@ async function events(m, { sock, Func }) {
        msg += `> *- Tag :* @${m.sender.split("@")[0]}\n`
        msg += `> *- Status :* ${m.isAdmin ? "admin group" : "member group"}`
        msg += `\n\n${m.isAdmin ? `> Kamu aman karena kamu admin dari group ${m.metadata.subject}` :   `> Maaf Kami tidak memperbolehkan anda mengirim *${link.title}* cari group lain saja 😹`}`
+  if (m.isAdmin) return 
    m.reply(msg)
     .then(() => {
      m.reply({ delete: m.key });
