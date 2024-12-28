@@ -9,11 +9,7 @@ module.exports = {
     limit: true,
   },
   description: "Cek Anime terbaru di samehadaku",
-<<<<<<< HEAD
   async run(m, { sock, Scraper, text, Func, config }) {
-=======
-  async run(m, { sock, Scraper, text, Func }) {
->>>>>>> 674c68d5fef13eb97000e280fe7e6567035b07c4
     let latest = await Scraper.samehadaku.latest();
     let cap = `*– 乂 Cara penggunaan*
 > Masukan query untuk mencari anime
@@ -33,7 +29,6 @@ ${latest
       .join("\n"),
   )
   .join("\n\n")}`;
-<<<<<<< HEAD
     if (!text) return sock.sendButtonMessage(m.cht, [{
         type: 'list',
         title: "🎦 Tab Here",
@@ -47,10 +42,6 @@ ${latest
        }]
      }], m, { body: cap, footer: config.name });
     if (Func.isUrl(text) && /samehadaku./.test(text)) {
-=======
-    if (!text) return m.reply(cap);
-    if (Func.isUrl(text) && /samehadaku.email/.test(text)) {
->>>>>>> 674c68d5fef13eb97000e280fe7e6567035b07c4
       if (/anime\//.test(text)) {
         let data = await Scraper.samehadaku.detail(text);
         let cap = `*– Anime - Detail*\n`;
@@ -78,11 +69,7 @@ ${latest
           )
           .join("\n");
         if (quality.length > 1) {
-<<<<<<< HEAD
           cap += "\n\n*– 乂 Download - Episode*\n";
-=======
-          cap += "\n\n*– 乂 Download - Episode*";
->>>>>>> 674c68d5fef13eb97000e280fe7e6567035b07c4
           for (let i of quality) {
             cap += `> *- Download ${i}*\n`;
             cap += data.download[i]
@@ -109,8 +96,4 @@ ${latest
       m.reply(cap);
     }
   },
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 674c68d5fef13eb97000e280fe7e6567035b07c4

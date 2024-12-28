@@ -15,7 +15,7 @@ module.exports = {
     botAdmin: true,
   },
   description: "Untuk menambahkan Member ke group",
-  async run(m, { sock, text, Func }) {
+  async run(m, { sock, text }) {
       const input = m.input ? m.input : m.quoted ? m.quoted.sender : m.mentions.length > 0 ? m.mentions[0] : false
         if (!input) throw `> Reply / masukan nomor yang ingin ditambah ke group`
         const p = await sock.onWhatsApp(input.trim())

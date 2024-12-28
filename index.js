@@ -223,11 +223,8 @@ sock.ev.on("messages.upsert", async (cht) => {
         : message.message;
     global.m = await serialize(message, sock, store);
     if (m.isBot && m.fromMe) return
-<<<<<<< HEAD
     if (!m.isOwner && db.list().settings.self) return
     
-=======
->>>>>>> 674c68d5fef13eb97000e280fe7e6567035b07c4
     await require("./system/handler.js")(m, sock, store); 
     await require("./system/case.js")(m, sock, store);
        });

@@ -27,10 +27,7 @@ module.exports = {
             name: item.command,
             alias: item.alias,
             description: item.description,
-<<<<<<< HEAD
             settings: item.settings,
-=======
->>>>>>> 674c68d5fef13eb97000e280fe7e6567035b07c4
           });
         });
       }
@@ -44,31 +41,22 @@ module.exports = {
             alias += command.alias.length; 
         });
     });
-<<<<<<< HEAD
       let premium = db.list().user[m.sender].premium.status
     let limit = db.list().user[m.sender].limit
-=======
->>>>>>> 674c68d5fef13eb97000e280fe7e6567035b07c4
       let caption = `*🍟 Selamat datang di Dashboard bot*
 Nama saya nekoBot - , Berikut list command bot ini
 
 *– 乂 Info User*
 > *- Nama :* ${m.pushName}
-<<<<<<< HEAD
 > *- Tag :* @${m.sender.split("@")[0]}
 > *- Status :* ${m.isOwner ? "Developer bot" : premium ? "Premium" : "Gratisan"}
 > *- Limit :* ${m.isOwner ? "Unlimited" : limit}
-=======
-> *- Perangkat :* ${m.device}
-> *- Tag :* @${m.sender.split("@")[0]}
->>>>>>> 674c68d5fef13eb97000e280fe7e6567035b07c4
 
 *– 乂 Info - Bot*
 > *- Nama :* ${pkg.name}
 > *- Versi :* v${pkg.version}
 > *- Runtime :* ${Func.toDate(process.uptime() * 1000)}
 > *- Prefix :* [ ${m.prefix} ]
-<<<<<<< HEAD
 > *- Total fitur :* ${cmd + alias + matches.length}
 > *- Source code :* https://github.com/AxellNetwork/NekoBot
 
@@ -76,10 +64,6 @@ Nama saya nekoBot - , Berikut list command bot ini
 > *- Fitur Premium :* [P]
 
 ☎️ Jika menemukan bug pada bot ini bisa langsung hubungi owner bot
-=======
-
-Jika menemukan bug pada bot ini bisa langsung hubungi owner bot
->>>>>>> 674c68d5fef13eb97000e280fe7e6567035b07c4
 
 *– 乂 M e n u - O t h e r*
 
@@ -88,7 +72,6 @@ ${matches.map((a, i) => `*${i + 1}.* ${m.prefix + a}\n> Fitur sampingan ( Case F
 Object.entries(menu).forEach(([tag, commands]) => {
     caption += `\n*– 乂 M e n u – ${tag.split('').join(' ').capitalize()}*\n\n`;
     commands.command.forEach((command, index) => {
-<<<<<<< HEAD
         caption += `*${index + 1}.* ${m.prefix + command.name} ${command.settings?.limit ? "*[L]*" : ''}\n${command.description ? `> ${command.description}\n` : ''}`
             });
       });   
@@ -117,31 +100,6 @@ Object.entries(menu).forEach(([tag, commands]) => {
           }],
           viewOnce: true,
           headerType: 6,
-=======
-        caption += `*${index + 1}.* ${m.prefix + command.name}\n${command.description ? `> ${command.description}\n` : ''}`
-            });
-      });   
-      m.reply({
-           text: caption,
-           contextInfo: {
-            mentionedJid: [m.sender],
-            isForwarded: !0,
-            forwardingScore: 127,
-            forwardedNewsletterMessageInfo: {
-                newsletterJid: "120363355890061032@newsletter",
-                newsletterName: "☘️ nekoBot | Playground",
-                 serverMessageId: -1
-             },
-              externalAdReply: {
-               title: "NekoBot - simple WhatsApp bot",
-               body: "- NekoBot adalah bot WhatsApp yang didesain untuk membantu anda di WhatsApp",
-               mediaType: 1,
-               thumbnailUrl: "https://files.catbox.moe/yupd7z.jpg",
-               sourceUrl: "https://api.botwa.space",
-               renderLargerThumbnail: true
-           }
-         }
->>>>>>> 674c68d5fef13eb97000e280fe7e6567035b07c4
        })
     }
 }
