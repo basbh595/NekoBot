@@ -9,7 +9,6 @@ const path = require('path');
 const execPromise = promisify(exec);
 
 async function converter(inputBuffer, inputFormat, outputFormat) {
-    // Validate input types
     if (!Buffer.isBuffer(inputBuffer)) {
         throw new Error('Input must be a Buffer');
     }
@@ -122,7 +121,7 @@ class Youtube {
                 const data = response.data.url;
                 if (data) {
                     let buffer = await fetch(data).then(async(a) => Buffer.from(await a.arrayBuffer()))
-                    result = await converter(buffer, "webm", "mp4");
+                    result = buffer 
                 }
             }
             break;
